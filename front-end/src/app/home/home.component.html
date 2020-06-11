@@ -1,0 +1,33 @@
+<div class="main-home-container">
+    <img
+        src="./assets/background.jpg"
+        class="background-img"
+    >
+    <div class="welcome-container">
+        <div class="welcome-text">
+            Welcome to Employee Management Portal
+        </div>
+        <div class="description">
+            A web application for managing employees’ details for a company
+        </div>
+        <div class="sub-desc">
+            You can Add, View, Edit & Delete Employee Data
+        </div>
+        <div class="button-container">
+            <div class="add-view">
+                <button
+                    class="add-view-button"
+                    (click)="addNewEmployee()"
+                    mat-raised-button
+                >Add New Employee</button>
+            </div>
+            <div class="add-view">
+                <button
+                    class="add-view-button"
+                    (click)="viewEmployeeDetails()"
+                    mat-raised-button
+                >View Employee Details</button>
+            </div>
+        </div>
+    </div>
+</div>

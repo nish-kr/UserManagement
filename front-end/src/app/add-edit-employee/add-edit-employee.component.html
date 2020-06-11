@@ -1,0 +1,126 @@
+<div class="main-add-edit-container">
+  <div class="home">
+    <button
+      mat-icon-button
+      (click)="goToHome()"
+      class="home-button"
+    >
+      <mat-icon class="home-button-icon">home</mat-icon>
+    </button>
+  </div>
+  <div class="form-container">
+    <div class="avatar-container">
+      <img
+        src="{{avatarPath}}"
+        class="avatar"
+      >
+    </div>
+    <div class="details-input">
+      <mat-form-field
+        appearance="outline"
+        class="form-field"
+      >
+        <mat-label>Enter your First name</mat-label>
+        <input
+          matInput
+          placeholder="Jack"
+          [formControl]="firstName"
+          required
+        >
+        <mat-error *ngIf="firstName.hasError('pattern') && !firstName.hasError('required')">
+          Only <strong> alphabets </strong> allowed
+        </mat-error>
+        <mat-error *ngIf="firstName.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="details-input">
+      <mat-form-field
+        appearance="outline"
+        class="form-field"
+      >
+        <mat-label>Enter Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Infrrd"
+          [formControl]="lastName"
+          required
+        >
+        <mat-error *ngIf="lastName.hasError('required')"> Last Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="details-input">
+      <mat-form-field
+        appearance="outline"
+        class="form-field"
+      >
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="abc@infrrd.com"
+          [formControl]="email"
+          required
+        >
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')"> Invalid <strong> email
+          </strong>
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')"> Email is <strong>required</strong> </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="details-input">
+      <mat-form-field
+        appearance="outline"
+        class="form-field"
+      >
+        <mat-label>Enter your contact</mat-label>
+        <input
+          matInput
+          placeholder="1234567890"
+          [formControl]="contact"
+          required
+        >
+        <mat-error *ngIf="contact.hasError('pattern') && !contact.hasError('required')"> Only <strong> numbers
+          </strong>
+          allowed </mat-error>
+        <mat-error *ngIf="contact.hasError('required')"> Contact is <strong>required</strong> </mat-error>
+      </mat-form-field>
+    </div>
+    <div
+      class="details-input"
+      *ngIf="!employeeDataToEdit"
+    >
+      <input
+        placeholder="Select an image"
+        #fileInput
+        type="file"
+        (change)="onImageUpload($event)"
+        class="pointer image-input"
+      />
+    </div>
+    <div class="details-button">
+      <button
+        mat-raised-button
+        *ngIf="employeeDataToEdit"
+        (click)="editEmployeeData()"
+        class="save-update-delete"
+      >Update</button>
+      <button
+        mat-raised-button
+        *ngIf="!employeeDataToEdit"
+        (click)="addEmployee()"
+        class="save-update-delete"
+      >Save</button>
+    </div>
+    <div class="details-button">
+      <button
+        mat-raised-button
+        color=secondary
+        *ngIf="employeeDataToEdit"
+        (click)="deleteEmployee()"
+        class="save-update-delete delete-button"
+      >Delete</button>
+    </div>
+  </div>
+</div>

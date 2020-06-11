@@ -1,0 +1,55 @@
+.main-add-edit-container {
+  width: 100%;
+  height: 100%;
+
+  .home {
+    position: absolute;
+    left: 120px;
+    top: 65px;
+
+    &-button {
+      display: flex;
+
+      &-icon {
+        font-size: 40px;
+        color: #7da5ff;
+      }
+    }
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .avatar-container {
+      margin-bottom: 10px;
+
+      .avatar {
+        width: 71px;
+      }
+    }
+
+    .details-input {
+      width: 50%;
+
+      .form-field {
+        width: 100%;
+      }
+    }
+
+    .details-button {
+      .save-update-delete {
+        width: 200px;
+        background: #d2d2d2;
+
+        &.delete-button {
+          margin-top: 20px;
+          background: #ff00007a;
+        }
+      }
+    }
+  }
+}

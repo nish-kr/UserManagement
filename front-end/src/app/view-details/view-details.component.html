@@ -1,0 +1,53 @@
+<div class="main-view-details-container">
+    <div class="home">
+        <button
+            mat-icon-button
+            (click)="goToHome()"
+            class="home-button"
+        >
+            <mat-icon class="home-button-icon">home</mat-icon>
+        </button>
+    </div>
+    <div class="view-details-container">
+        <div class="heading">
+            <div class="heading-main">View Employee Details</div>
+            <div class="heading-sub">Click on any row to Edit / Delete that employee</div>
+        </div>
+        <table class="table">
+            <tr class="table-row">
+                <th
+                    *ngFor="let columnHeader of tableHeaderData"
+                    class="table-row-header"
+                >
+                    {{columnHeader}}
+                </th>
+            </tr>
+            <tr
+                *ngFor="let employee of employeeData"
+                (click)="editRowData(employee)"
+                class="table-row data-row"
+            >
+                <td
+                    *ngFor="let rowColumn of tableHeaderData"
+                    class="table-row-data"
+                >
+                    <div *ngIf="rowColumn === 'Avatar'">
+                        <img
+                            src="{{defaultPathSrc}}{{employee[rowColumn.toLowerCase()]}}"
+                            alt=""
+                            style="width: 30px;"
+                        >
+                    </div>
+                    <div *ngIf="rowColumn != 'Avatar'"> {{employee[rowColumn.toLowerCase()]}}</div>
+                </td>
+            </tr>
+        </table>
+        <div class="add-new">
+            <button
+                mat-raised-button
+                (click)="addNewUser()"
+                class="add-new-button"
+            >Add New Employee</button>
+        </div>
+    </div>
+</div>
